@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Get a Quote | WhitefieldHouse</title>
+  <meta name="description" content="Get an instant book printing quote from WhitefieldHouse and place your order. From 15 copies.">
+  <meta name="theme-color" content="#240407">
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <link rel="preload" href="assets/fonts/Switzer/Switzer-Regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/Switzer/Switzer-Semibold.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/Cinzel/Cinzel-Bold.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <header class="topbar" id="topbar">
+    <a class="brand" href="https://whitefieldhouse.com.ng/" aria-label="WhitefieldHouse home">
+      <span class="brand-mark" aria-hidden="true"></span>
+      <span>WhitefieldHouse</span>
+    </a>
+    <nav class="nav" id="nav" aria-label="Main">
+      <a href="https://whitefieldhouse.com.ng/">Home</a>
+      <a href="https://whitefieldhouse.com.ng/features.html">Features</a>
+      <a href="https://whitefieldhouse.com.ng/sermon-to-book.html">Sermon to Book</a>
+      <a href="https://whitefieldhouse.com.ng/book-printing.html">Book Printing</a>
+      <a href="#order" aria-current="page">Get a Quote</a>
+      <a href="https://whitefieldhouse.com.ng/support.html">Support</a>
+    </nav>
+    <div class="topbar-end">
+      <a class="btn btn-lime btn-sm" href="#order">Order now</a>
+      <button class="menu-btn" id="menu-btn" type="button" aria-expanded="false" aria-controls="nav" aria-label="Open menu"><span></span><span></span></button>
+    </div>
+  </header>
+
+  <section class="hero hero--page" id="top" aria-label="Get a quote">
+    <canvas class="hero-field" id="field" aria-hidden="true"></canvas>
+    <div class="hero-copy">
+      <h1>Get a quote</h1>
+      <p>Price your book in seconds, then place your order.</p>
+    </div>
+  </section>
+
+  <main>
+
+    <section class="section section-order" id="order">
+      <div class="wrap">
+        <h2 class="h2">Your book</h2>
+        <p class="lede">Minimum of 15 copies. Once your order is in, we'll send you a link to upload your cover and content.</p>
+
+        <form class="order" id="order-form" novalidate>
+          <div class="order-fields">
+
+            <fieldset class="group">
+              <legend>Book details</legend>
+              <div class="grid-2">
+                <label class="field">
+                  <span>Number of copies <em>*</em></span>
+                  <input type="number" name="copies" min="15" step="1" value="50" inputmode="numeric" required>
+                  <small class="hint">Minimum 15</small>
+                </label>
+                <label class="field">
+                  <span>B&amp;W text-only pages <em>*</em></span>
+                  <input type="number" name="textPages" min="0" step="1" value="120" inputmode="numeric" required>
+                </label>
+                <label class="field">
+                  <span>Pages with B&amp;W images</span>
+                  <input type="number" name="imagePages" min="0" step="1" value="0" inputmode="numeric">
+                </label>
+                <label class="field">
+                  <span>Colour pages</span>
+                  <input type="number" name="colourPages" min="0" step="1" value="0" inputmode="numeric">
+                </label>
+              </div>
+
+              <div class="field">
+                <span>Inner paper <em>*</em></span>
+                <div class="choice-row">
+                  <label class="choice">
+                    <input type="radio" name="paper" value="white" checked>
+                    <span class="swatch swatch-white" aria-hidden="true"></span>
+                    <span><b>White</b> 80gsm</span>
+                  </label>
+                  <label class="choice">
+                    <input type="radio" name="paper" value="cream">
+                    <span class="swatch swatch-cream" aria-hidden="true"></span>
+                    <span><b>Cream</b> 80gsm</span>
+                  </label>
+                </div>
+              </div>
+            </fieldset>
+
+            <fieldset class="group">
+              <legend>Your details</legend>
+              <div class="grid-2">
+                <label class="field"><span>First name <em>*</em></span><input type="text" name="firstName" autocomplete="given-name" required></label>
+                <label class="field"><span>Last name <em>*</em></span><input type="text" name="lastName" autocomplete="family-name" required></label>
+                <label class="field"><span>Email address <em>*</em></span><input type="email" name="email" autocomplete="email" required></label>
+                <label class="field"><span>Phone number <em>*</em></span><input type="tel" name="phone" autocomplete="tel" required></label>
+              </div>
+              <label class="field"><span>Delivery address</span><textarea name="address" rows="2" autocomplete="street-address"></textarea></label>
+              <label class="field"><span>Anything else we should know?</span><textarea name="notes" rows="3"></textarea></label>
+            </fieldset>
+
+            <fieldset class="group">
+              <legend>Payment method</legend>
+              <div class="choice-col">
+                <label class="choice">
+                  <input type="radio" name="payment" value="paystack" checked>
+                  <span><b>Online payment</b> via Paystack</span>
+                </label>
+                <label class="choice">
+                  <input type="radio" name="payment" value="transfer">
+                  <span><b>Offline payment</b> by bank transfer or deposit</span>
+                </label>
+              </div>
+            </fieldset>
+
+            <p class="note"><b>Note:</b> Production takes 4 working days. Delivery time depends on your location and our delivery partners.</p>
+          </div>
+
+          <aside class="summary" id="quote" aria-label="Order summary">
+            <div class="summary-card">
+              <div class="summary-head">
+                <span class="summary-label">Your quote</span>
+                <span class="tier-badge" id="tier-badge">15 to 100 copies</span>
+              </div>
+              <div class="summary-figs">
+                <div>
+                  <span class="summary-label">Cost per book</span>
+                  <output class="fig" id="per-book">₦0</output>
+                </div>
+                <div>
+                  <span class="summary-label">Total cost</span>
+                  <output class="fig fig-total" id="total">₦0</output>
+                </div>
+              </div>
+              <dl class="breakdown" id="breakdown"></dl>
+              <p class="nudge" id="nudge" hidden></p>
+              <p class="form-error" id="form-error" role="alert" hidden></p>
+              <button class="btn btn-lime btn-block" type="submit">Proceed</button>
+              <button class="btn btn-ghost btn-block" type="button" id="save-draft">Save as draft</button>
+              <p class="draft-status" id="draft-status" aria-live="polite"></p>
+            </div>
+          </aside>
+        </form>
+      </div>
+    </section>
+
+    <section class="section" id="pricing">
+      <div class="wrap">
+        <h2 class="h2">How your price is worked out</h2>
+        <p class="lede">Every copy carries a cover &amp; binding charge, plus a rate for each page. Your quantity sets the tier.</p>
+        <div class="table-scroll">
+          <table class="tiers" id="tiers">
+            <thead>
+              <tr>
+                <th scope="col">Copies</th>
+                <th scope="col">Cover &amp; binding <small>per copy</small></th>
+                <th scope="col">B&amp;W text page <small>white</small></th>
+                <th scope="col">B&amp;W text page <small>cream</small></th>
+                <th scope="col">B&amp;W image page</th>
+                <th scope="col">Colour page</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+        <p class="fine">All prices in Naira, per copy. 80gsm inner pages.</p>
+      </div>
+    </section>
+
+    <div class="quote-bar" id="quote-bar" aria-hidden="true">
+      <div><span class="summary-label">Total</span><b id="bar-total">₦0</b></div>
+      <a class="btn btn-lime btn-sm" href="#quote" tabindex="-1">Review quote</a>
+    </div>
+
+  
+  </main>
+
+  <footer class="footer">
+    <canvas class="footer-field" id="footer-field" aria-hidden="true"></canvas>
+    <div class="wrap footer-inner">
+      <div class="footer-brand">
+        <a class="brand" href="https://whitefieldhouse.com.ng/">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <span>WhitefieldHouse</span>
+        </a>
+        <p>A digital ministry platform empowering ministers and preachers to take the Gospel to the ends of the world.</p>
+        <p class="footer-tagline">Technology <span aria-hidden="true">|</span> Media <span aria-hidden="true">|</span> The Gospel</p>
+      </div>
+      <div class="footer-col">
+        <h4>Platform</h4>
+        <ul>
+          <li><a href="https://whitefieldhouse.com.ng/features.html">Features</a></li>
+          <li><a href="https://whitefieldhouse.com.ng/sermon-to-book.html">Sermon to Book</a></li>
+          <li><a href="https://whitefieldhouse.com.ng/book-printing.html">Book Printing</a></li>
+          <li><a href="#order">Get a printing quote</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Connect</h4>
+        <ul>
+          <li><a href="https://whitefieldhouse.com.ng/support.html">Support</a></li>
+          <li><a href="https://wa.me/2348131513534" target="_blank" rel="noopener">WhatsApp +234 813 151 3534</a></li>
+          <li><a href="https://web.facebook.com/whitefieldhouseofficial" target="_blank" rel="noopener">Facebook</a></li>
+          <li><a href="https://www.youtube.com/@whitefieldhouseTV" target="_blank" rel="noopener">YouTube</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="wrap footer-base">
+      <span>&copy; <span id="year"></span> WhitefieldHouse.</span>
+      <a href="#top">Back to top</a>
+    </div>
+  </footer>
+
+  <dialog class="confirm" id="confirm">
+    <form method="dialog">
+      <p class="summary-label">Order reference <b id="ref"></b></p>
+      <h3>Almost done</h3>
+      <p id="confirm-text"></p>
+      <dl class="breakdown" id="confirm-breakdown"></dl>
+      <div class="confirm-actions">
+        <a class="btn btn-lime" id="send-order" href="#" target="_blank" rel="noopener">Send on WhatsApp</a>
+        <button class="btn btn-ghost" value="close">Edit order</button>
+      </div>
+    </form>
+  </dialog>
+
+  <script src="app.js"></script>
+</body>
+</html>
